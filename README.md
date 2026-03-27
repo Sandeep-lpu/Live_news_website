@@ -28,6 +28,18 @@ PulseWire is a lightweight live news website starter with:
 - `npm start` - start the local server
 - `npm run dev` - start the local server in watch mode
 
+## Deploy on Vercel
+
+1. Push the project to GitHub.
+2. Import the repository into Vercel.
+3. Add these environment variables in Vercel Project Settings:
+   - `NEWS_API_KEY`
+   - `NEWS_COUNTRY`
+   - `NEWS_FALLBACK_COUNTRY`
+4. Redeploy after saving the variables.
+
+The homepage is served as static files and the live feed runs from the Vercel function at `/api/news`.
+
 ## Notes
 
 - The frontend never exposes your API key because requests go through the local server.

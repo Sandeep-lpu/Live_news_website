@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Live news website starter with a local NewsAPI proxy.",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js"
