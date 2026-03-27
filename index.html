@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseWire | Live & Verified News</title>
+    <meta
+      name="description"
+      content="PulseWire delivers daily live headlines with visible source trust, fast refresh, and category-based browsing."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <div class="brand-block">
+            <span class="brand-mark">PW</span>
+            <div>
+              <p class="eyebrow">LIVE NEWSROOM</p>
+              <h1>PulseWire</h1>
+            </div>
+          </div>
+
+          <div class="status-cluster">
+            <div class="status-pill" id="feed-status">
+              <span class="status-dot"></span>
+              <span>Connecting to live provider</span>
+            </div>
+            <button class="refresh-button" id="refresh-button" type="button">
+              Refresh feed
+            </button>
+          </div>
+        </nav>
+
+        <section class="hero-content">
+          <div class="hero-copy">
+            <p class="section-kicker">Daily live coverage</p>
+            <h2>Breaking stories with honest source trust.</h2>
+            <p class="hero-text">
+              Follow fast-moving headlines with clear timestamps, provider-fed
+              updates, category filters, and trust labels that tell readers
+              what has been source-linked and what comes from a trusted desk.
+            </p>
+
+            <form class="search-panel" id="search-form">
+              <label class="search-label" for="search-input">Search topic</label>
+              <div class="search-row">
+                <input
+                  id="search-input"
+                  name="search"
+                  type="search"
+                  placeholder="Search AI, cricket, markets, health..."
+                  autocomplete="off"
+                />
+                <button class="primary-action" type="submit">Search</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="hero-panel">
+            <p class="panel-label">Newsroom snapshot</p>
+            <div class="metric-grid">
+              <article>
+                <span id="story-count">0</span>
+                <p>Stories loaded</p>
+              </article>
+              <article>
+                <span id="trusted-count">0</span>
+                <p>Trusted desks</p>
+              </article>
+              <article>
+                <span id="live-mode">--</span>
+                <p>Feed mode</p>
+              </article>
+              <article>
+                <span id="active-country">IN</span>
+                <p>Country</p>
+              </article>
+            </div>
+
+            <div class="refresh-card">
+              <p>Last refresh</p>
+              <strong id="last-refresh">Updating...</strong>
+            </div>
+          </aside>
+        </section>
+      </header>
+
+      <main>
+        <section class="featured-grid">
+          <article class="breaking-card" id="featured-story">
+            <p class="section-kicker">Breaking now</p>
+            <h3>Loading top headline...</h3>
+            <p class="story-summary">
+              Fetching the latest news from the configured provider.
+            </p>
+          </article>
+
+          <aside class="standards-card" id="trust-center">
+            <p class="section-kicker">Trust center</p>
+            <h3>How PulseWire explains credibility</h3>
+            <ul class="standards-list">
+              <li>Trusted source means the article came from an allowlisted news desk or broadcaster domain.</li>
+              <li>Source linked means the article has a named source and direct article URL, but is not in the trusted allowlist.</li>
+              <li>Fallback feed appears only when no API key is configured or the live provider is unavailable.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="feed-controls">
+          <div>
+            <p class="section-kicker">Live stream</p>
+            <h3 id="feed-heading">Today's top headlines</h3>
+          </div>
+          <div class="filter-row" id="category-filters" aria-label="News filters"></div>
+        </section>
+
+        <section class="meta-strip">
+          <p id="provider-note">Provider status: checking connection.</p>
+          <button class="clear-search" id="clear-search" type="button" hidden>
+            Clear search
+          </button>
+        </section>
+
+        <section class="news-grid" id="live-feed" aria-live="polite"></section>
+        <p class="empty-state" id="empty-state" hidden>No stories matched this view.</p>
+      </main>
+    </div>
+
+    <template id="news-card-template">
+      <article class="news-card">
+        <div class="news-visual"></div>
+        <div class="card-topline">
+          <span class="category-tag"></span>
+          <span class="verification-tag"></span>
+        </div>
+        <h4 class="news-title"></h4>
+        <p class="news-summary"></p>
+        <div class="news-meta">
+          <span class="news-source"></span>
+          <span class="news-time"></span>
+        </div>
+        <a class="read-link" target="_blank" rel="noreferrer noopener">Read article</a>
+      </article>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

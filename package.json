@@ -1,0 +1,10 @@
+{
+  "name": "pulsewire",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Live news website starter with a local NewsAPI proxy.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  }
+}
